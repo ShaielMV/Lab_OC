@@ -14,6 +14,25 @@ _start:
 	mov al,10	
 	call putchar
 
+	push bx
+	mov ax, bx
+	call pHex_w	
+
+	mov al,10	
+	call putchar
+
+
+	mov eax, 0x2219166
+	mov ebx, 0x5C4B2A60
+    add eax, ebx
+
+	call pHex_dw	
+
+	mov al,10	
+	call putchar
+
+	
+
 	
 
 
