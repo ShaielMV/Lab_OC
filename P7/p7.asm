@@ -96,7 +96,7 @@ _start:
     call putchar 
 	call putchar
 
-    shr esi, 3  ;inciso k
+    
 
 	mov eax, 1
 	int 0x80        
