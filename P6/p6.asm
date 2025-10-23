@@ -11,7 +11,8 @@
 _start: 
 	mov eax, 0x2219166
 	mov ebx, 0x5C4B2A60
-    add eax, ebx
+    add ebx, eax
+	mov eax, ebx
 
 	call pHex_dw	
 
@@ -61,7 +62,7 @@ _start:
 	call pHex_w
 
 	mov al,10	
-	call putchar 	;fin incisio f
+	call putchar 	;fin inciso f
 
 	dec word [N]
 	mov ax, [N]
@@ -71,13 +72,14 @@ _start:
 	call putchar
 
 	pushf
-	pop ax
-	call pHex_w    
+	pop eax
+	call pHex_dw    
 
 	mov al, 10
 	call putchar 	;fin inciso g
 
-	pop ax
+	pop bx
+	mov ax, bx
 	call pHex_w
 
 	mov al,10
