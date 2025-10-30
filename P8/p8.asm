@@ -12,8 +12,8 @@
     msgMayorM	db  'La letra ingreada es mayor a m',0xa,0 
     msgLetra	db  'El caracter ingresado es una letra',0xa,0 
     msgNum	db  'El caracter ingresado es un numero',0xa,0 
-    asterisco db '*',0
-    array db 10
+ 
+    
 	
 _start: 
 	call getche     ;inciso a
@@ -68,18 +68,29 @@ _start:
     mov cx, 3
     
  print: 
-    mov ax, cx
-    mov edx, asterisco
+ mov bx, cx   
     cant:
-        call puts
-        dec ax
-        cmp ax, 0
+        mov al, '*'
+        call putchar
+        dec bx
+        cmp bx, 0
         ja cant
         mov al, 10
-        call putchar
+        call putchar      
  loop print
 
-                ;inciso d
+
+    mov cx, 10        ;inciso d
+    mov ebx, 0
+    captura:          
+        call getche
+       
+    
+
+    mov cx, 10 
+    mostrar:
+     
+    
 
          
 
