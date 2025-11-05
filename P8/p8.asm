@@ -56,12 +56,10 @@ _start:
 
     num:
     cmp al, '0'
-    jae esnum
+    jb sigc
     cmp al, '9'
-    jbe esnum
-    jmp sigc
+    ja sigc
 
-    esnum:
     mov edx, msgNum
     call puts
 
