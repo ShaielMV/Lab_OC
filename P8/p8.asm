@@ -7,12 +7,12 @@
     
 
 	section .data
-     msgnoLetra	db  'El caracter ingresado no es una letra',0xa,0
-    msgMenorM	db  'La letra ingreada es menor a m',0xa,0 
-    msgMayorM	db  'La letra ingreada es mayor a m',0xa,0 
-    msgLetra	db  'El caracter ingresado es una letra',0xa,0 
-    msgNum	db  'El caracter ingresado es un numero',0xa,0 
-    arrey db '
+     msgnoLetra	db  'El caracter ingresado no es una letra',0xa,0xa,0
+    msgMenorM	db  'La letra ingreada es menor a m',0xa,0xa,0 
+    msgMayorM	db  'La letra ingreada es mayor a m',0xa,0xa,0 
+    msgLetra	db  'El caracter ingresado es una letra',0xa,0xa,0 
+    msgNum	db  'El caracter ingresado es un numero',0xa,0xa,0 
+    arreglo db '',0
  
     
 	
@@ -45,9 +45,9 @@ _start:
 
     sigb:        ;inciso b
     call getche  
-    cmp al, 'a'
+    cmp al, 'A'
     jb num
-    cmp al, 'z'
+    cmp al, 'Z'
     ja num
 
     mov edx, msgLetra
@@ -67,6 +67,7 @@ _start:
 
     sigc:       ;inciso c
     mov cx, 3
+   
     
  print: 
  mov bx, cx   
@@ -79,21 +80,33 @@ _start:
         mov al, 10
         call putchar      
  loop print
+    mov al, 10
+    call putchar
 
-
-    mov cx, 10        ;inciso d
-    mov ebx, 0
+    mov esi, arreglo        ;inciso d
+    mov cx, 10
     captura:          
         call getche
-       
+        mov [esi], al
+        inc esi
+    loop captura
+
+    mov al, 10
+    call putchar
+    mov cx, 10
+    mov esi, arreglo
+
+    desplegar:
+        mov al, [esi]
+        call putchar
+        inc esi
+        mov al, 10
+        call putchar
+    loop desplegar
     
 
     mov cx, 10 
-    mostrar:
-     
-    
-
-         
+    mostrar:  
 
 	mov eax, 1
 	int 0x80        
