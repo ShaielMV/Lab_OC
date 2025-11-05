@@ -12,7 +12,7 @@
     msgMayorM	db  'La letra ingreada es mayor a m',0xa,0xa,0 
     msgLetra	db  'El caracter ingresado es una letra',0xa,0xa,0 
     msgNum	db  'El caracter ingresado es un numero',0xa,0xa,0 
-    arreglo db '',0
+    arreglo db '0123456789',0
  
     
 	
