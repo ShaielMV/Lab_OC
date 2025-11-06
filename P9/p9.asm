@@ -20,6 +20,7 @@ _start:
     call c_linea
     call capturar
 
+
     mov edx, captura2
     call puts
     mov dl, 1
