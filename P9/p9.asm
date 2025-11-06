@@ -20,7 +20,6 @@ _start:
     call c_linea
     call capturar
 
-
     mov edx, captura2
     call puts
     mov dl, 1
@@ -47,6 +46,7 @@ _start:
 
     capturar:
     mov ebx, arreglo
+    mov edx, arreglo2
     mov ecx, n
 
     cmp dl, 1
@@ -59,8 +59,8 @@ _start:
         jb r
         cmp al,'9'
         ja r
-       
-        sub al, '0'
+
+        sub al,'0'
         mov byte [ebx], al
         inc ebx
     loop ciclo
@@ -92,13 +92,17 @@ _start:
     ret
 
     suma:
+        mov ecx, n
         mov ebx, arreglo
         mov edx, arreglo2
        
         ciclo3:
-          
-             
-            
+          mov al, byte[ebx]
+          add al, byte[edx]
+          mov byte[ebx], al
+          inc ebx
+          inc edx
+                  
         loop ciclo3
     ret
 
