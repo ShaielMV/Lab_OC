@@ -1,5 +1,5 @@
 %include "../LIB/pc_iox.inc"
-n equ 3
+n equ 5
 
 	section	.text
 
@@ -9,10 +9,10 @@ n equ 3
 	section .data
     captura1 db 'Ingrese el primer vector',0
     captura2 db 'Ingrese el segundo vector',0
-    sumav db 'La suma de los 2 vectores es =',0
-    escalarResultados db 'El producto escalar entre los 2 vectores es =',0
-    arreglo db "1234567890",0
-    arreglo2 db "1234567890",0
+    sumav db 'La suma de los 2 vectores es= ',0
+    escalarResultados db 'El producto escalar entre los 2 vectores es= ',0
+    arreglo db "1234567890"
+    arreglo2 db "1234567890"
  
     
 _start: 
@@ -75,9 +75,8 @@ capturarVector:
         push eax
 
         cmp ecx,10
-        ja end
-        cmp ecx, 10
-        je end
+        jae end
+
         mostrar:
             call saltoLinea
             mov al,[ebx]
@@ -98,9 +97,9 @@ capturarVector:
         push eax
 
         sumar:
-            mov al, [ebx]
-            add al, [edx]
-            mov [ebx], al
+       
+            mov al, [edx]
+            add [ebx], al
             inc ebx
             inc edx
         loop sumar
