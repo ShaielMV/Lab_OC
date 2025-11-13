@@ -1,7 +1,7 @@
 %include "../LIB/pc_iox.inc"
 	
     global suma
-    global strlen
+    global Strlen
 
 	section	.text
 
@@ -14,13 +14,20 @@
     pop ebp
     ret
 
-    strlen:
+    Strlen:
     push ebp
+    mov eax,0
+    niv edx, 0
     mov ebp, esp
-    mov ecx, [ebp+8];
-    cmp [ecx], 0
+    mov ecx, [ebp+8]
+  leer:  mov edx, [ecx]
+    cmp edx, 0
     je fin
+    inc ecx
     inc eax
+    jmp leer
+    fin:
+    ret
 
     
 
